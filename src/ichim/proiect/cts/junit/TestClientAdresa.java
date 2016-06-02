@@ -1,6 +1,7 @@
 package ichim.proiect.cts.junit;
 
 import ichim.proiect.cts.Client;
+import ichim.proiect.cts.ExceptieDenumireIncorecta;
 import junit.framework.TestCase;
 
 public class TestClientAdresa extends TestCase {
@@ -49,7 +50,12 @@ public class TestClientAdresa extends TestCase {
 	
 	public void testValoareNormala(){
 		String adresa="Bucuresti, str Brailita nr 7";
-		client.setAdresa(adresa);
-		assertEquals("Verificare valoare normala",adresa,client.getAdresa());
+		try {
+			client.setAdresa(adresa);
+			assertEquals("Verificare valoare normala",adresa,client.getAdresa());
+		} catch (ExceptieDenumireIncorecta e) {
+
+		}
+		
 	}
 }
