@@ -21,10 +21,11 @@ public class TestFilmPretFinal extends TestCase {
 	
 	public void testValoriNormale(){
 		double valoareNormala=10;
+		double valoareCuTVA=valoareNormala*(1+Produs.TVA);
 		try {
 			film.setPret(valoareNormala);
 			assertEquals("Verificare pret final valori normale pentru pret",
-					valoareNormala*(1+Produs.TVA) ,film.pretFinal()); 
+					valoareCuTVA,film.pretFinal()); 
 		} catch (ExceptiePret e) {
 
 		}
@@ -41,5 +42,4 @@ public class TestFilmPretFinal extends TestCase {
 
 		}
 	}
-
 }
